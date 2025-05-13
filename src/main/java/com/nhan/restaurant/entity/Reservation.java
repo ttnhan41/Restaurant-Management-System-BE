@@ -26,4 +26,28 @@ public class Reservation {
     public enum Status {
         PENDING, CONFIRMED, CANCELLED
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public RestaurantTable getTable() {
+        return table;
+    }
+
+    public LocalDateTime getReservationTime() {
+        return reservationTime;
+    }
+
+    public int getGuestsCount() {
+        return guestsCount;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
 }

@@ -16,4 +16,20 @@ public class OrderItem {
     private MenuItem menuItem;
 
     private int quantity;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public MenuItem getMenuItem() {
+        return menuItem;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }

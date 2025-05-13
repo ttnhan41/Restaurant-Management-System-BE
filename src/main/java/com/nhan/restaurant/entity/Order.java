@@ -22,4 +22,20 @@ public class Order {
     public enum Status {
         PLACED, IN_PROGRESS, SERVED, CANCELLED
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public LocalDateTime getOrderTime() {
+        return orderTime;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
 }
