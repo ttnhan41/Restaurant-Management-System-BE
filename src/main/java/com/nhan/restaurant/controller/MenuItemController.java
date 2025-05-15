@@ -18,10 +18,9 @@ public class MenuItemController {
         this.menuItemService = menuItemService;
     }
 
-    @PostMapping
-    public ResponseEntity<MenuItemDTO> createMenuItem(@RequestBody MenuItemDTO dto) {
-        MenuItemDTO created = menuItemService.createMenuItem(dto);
-        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    @GetMapping
+    public ResponseEntity<List<MenuItemDTO>> getAllAvailableMenuItems() {
+        return ResponseEntity.ok(menuItemService.getAllAvailableMenuItems());
     }
 
     @GetMapping("/{id}")
@@ -29,9 +28,10 @@ public class MenuItemController {
         return ResponseEntity.ok(menuItemService.getMenuItem(id));
     }
 
-    @GetMapping
-    public ResponseEntity<List<MenuItemDTO>> getAllAvailableMenuItems() {
-        return ResponseEntity.ok(menuItemService.getAllAvailableMenuItems());
+    @PostMapping
+    public ResponseEntity<MenuItemDTO> createMenuItem(@RequestBody MenuItemDTO dto) {
+        MenuItemDTO created = menuItemService.createMenuItem(dto);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")

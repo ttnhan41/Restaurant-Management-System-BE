@@ -16,6 +16,7 @@ public class OrderItem {
     private MenuItem menuItem;
 
     private int quantity;
+    private Double price;
 
     public Long getId() {
         return id;
@@ -25,11 +26,31 @@ public class OrderItem {
         return order;
     }
 
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
     public MenuItem getMenuItem() {
         return menuItem;
     }
 
+    public void setMenuItem(MenuItem menuItem) {
+        this.menuItem = menuItem;
+    }
+
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
