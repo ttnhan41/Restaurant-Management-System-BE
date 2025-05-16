@@ -12,4 +12,13 @@ public class RestaurantTableMapper {
         dto.setAvailable(table.isAvailable());
         return dto;
     }
+
+    public static RestaurantTable toEntity(RestaurantTableDTO dto) {
+        RestaurantTable entity = new RestaurantTable();
+        entity.setId(dto.getId());
+        entity.setTableNumber(dto.getTableNumber());
+        entity.setSeats(dto.getSeats());
+        entity.setAvailable(dto.isAvailable());
+        return entity;
+    }
 }

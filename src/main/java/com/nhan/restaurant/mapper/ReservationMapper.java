@@ -11,7 +11,7 @@ public class ReservationMapper {
         dto.setTableId(res.getTable().getId());
         dto.setReservationTime(res.getReservationTime());
         dto.setGuestsCount(res.getGuestsCount());
-        dto.setStatus(res.getStatus().name());
+        dto.setStatus(Reservation.Status.valueOf(res.getStatus().name()));
         return dto;
     }
 }

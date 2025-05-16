@@ -19,8 +19,8 @@ public class MenuItemController {
     }
 
     @GetMapping
-    public ResponseEntity<List<MenuItemDTO>> getAllAvailableMenuItems() {
-        return ResponseEntity.ok(menuItemService.getAllAvailableMenuItems());
+    public ResponseEntity<List<MenuItemDTO>> getAllMenuItems() {
+        return ResponseEntity.ok(menuItemService.getAllMenuItems());
     }
 
     @GetMapping("/{id}")

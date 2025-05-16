@@ -31,9 +31,8 @@ public class MenuItemService {
         return MenuItemMapper.toDTO(menuItem);
     }
 
-    public List<MenuItemDTO> getAllAvailableMenuItems() {
-        return menuItemRepository.findByAvailableTrue()
-                .stream()
+    public List<MenuItemDTO> getAllMenuItems() {
+        return menuItemRepository.findAll().stream()
                 .map(MenuItemMapper::toDTO)
                 .collect(Collectors.toList());
     }

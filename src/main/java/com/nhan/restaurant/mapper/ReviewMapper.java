@@ -11,6 +11,7 @@ public class ReviewMapper {
         dto.setMenuItemId(review.getMenuItem().getId());
         dto.setRating(review.getRating());
         dto.setComment(review.getComment());
+        dto.setCreatedAt(review.getCreatedAt());
         return dto;
     }
 }

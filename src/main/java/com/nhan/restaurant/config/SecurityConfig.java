@@ -40,8 +40,16 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/menu-items").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.PUT, "/api/menu-items/{id}").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.DELETE, "/api/menu-items/{id}").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.GET,"/api/tables/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/tables").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.PUT, "/api/tables/{id}").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.DELETE, "/api/tables/{id}").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.GET, "/api/orders/all").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.PUT, "/api/orders/updateStatus").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.GET, "/api/reservations/all").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.PUT, "/api/reservations/updateStatus").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.GET, "/api/reviews/all").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.GET,"/api/reviews/menu-items/{id}").permitAll()
                 .anyRequest().authenticated());
 
         return http.build();

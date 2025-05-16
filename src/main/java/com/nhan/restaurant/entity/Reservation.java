@@ -35,19 +35,39 @@ public class Reservation {
         return user;
     }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public RestaurantTable getTable() {
         return table;
+    }
+
+    public void setTable(RestaurantTable table) {
+        this.table = table;
     }
 
     public LocalDateTime getReservationTime() {
         return reservationTime;
     }
 
+    public void setReservationTime(LocalDateTime reservationTime) {
+        this.reservationTime = reservationTime;
+    }
+
     public int getGuestsCount() {
         return guestsCount;
     }
 
+    public void setGuestsCount(int guestsCount) {
+        this.guestsCount = guestsCount;
+    }
+
     public Status getStatus() {
         return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
