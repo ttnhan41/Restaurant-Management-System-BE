@@ -12,6 +12,7 @@ public class MenuItem {
     private String name;
     private String description;
     private Double price;
+    private String imageUrl;
     private Boolean available;
 
     public Long getId() {
@@ -44,6 +45,14 @@ public class MenuItem {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Boolean getAvailable() {

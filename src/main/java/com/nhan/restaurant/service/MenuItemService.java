@@ -44,6 +44,7 @@ public class MenuItemService {
         menuItem.setName(dto.getName());
         menuItem.setDescription(dto.getDescription());
         menuItem.setPrice(dto.getPrice());
+        menuItem.setImageUrl(dto.getImageUrl());
         menuItem.setAvailable(dto.getAvailable());
 
         return MenuItemMapper.toDTO(menuItemRepository.save(menuItem));
