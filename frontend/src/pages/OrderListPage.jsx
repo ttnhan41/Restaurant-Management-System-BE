@@ -45,7 +45,7 @@ export default function OrderListPage() {
   const [menuItems, setMenuItems] = useState([]);
 
   useEffect(() => {
-    const token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwic3ViIjoiYWRtaW5ubkBnbWFpbC5jb20iLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc0ODc2OTE5MSwiZXhwIjoxNzQ4NzcyNzkxfQ.Zms98eu5iXhagOqqxgUvLlXd6h3PrQTo9_Rbcw7VxiM";
+    const token = "Bearer eyJhbGciOiJIUzI1NiJ9.eyJpZCI6NCwic3ViIjoiYWRtaW5ubkBnbWFpbC5jb20iLCJyb2xlIjoiTUFOQUdFUiIsImlhdCI6MTc0ODc4NDA2NSwiZXhwIjoxNzQ4Nzg3NjY1fQ.WZnmG-icsQ6zkQXUCjytkMP0TROMWqsTEM07L18m5WY";
 
     axios.get('/api/orders', { headers: { Authorization: token } })
       .then(res => setOrders(res.data))

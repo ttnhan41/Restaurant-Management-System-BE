@@ -4,6 +4,9 @@ import com.nhan.restaurant.security.AuthResponse;
 import com.nhan.restaurant.security.LoginRequest;
 import com.nhan.restaurant.security.RegisterRequest;
 import com.nhan.restaurant.service.AuthService;
+
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,4 +33,5 @@ public class AuthController {
     public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
         return ResponseEntity.ok(authService.login(request));
     }
+
 }
