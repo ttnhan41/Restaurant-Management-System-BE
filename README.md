@@ -84,6 +84,12 @@ This is the backend service for a restaurant management system built using Sprin
 - `GET /reviews/menu-items/{id}` – View all reviews of a menu item
 - `GET /reviews/all` – (Manager) View all reviews
 
+### Users
+- `GET /users/all` – (Manager) View all users
+- `GET /users/{id}` – (Manager) View a user
+- `GET /users/current-user` – View current user
+- `PUT /users/update` – Update current user
+
 ---
 
 ## ⚙️ Installation Guide
