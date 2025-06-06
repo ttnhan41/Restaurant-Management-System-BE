@@ -9,7 +9,13 @@ public class UserMapper {
         dto.setId(user.getId());
         dto.setName(user.getName());
         dto.setEmail(user.getEmail());
+        dto.setPhoneNumber(user.getPhoneNumber());
         dto.setRole(user.getRole().name());
         return dto;
+    }
+
+    public static void updateUserFromDTO(User user, UserDTO dto) {
+        user.setName(dto.getName());
+        user.setPhoneNumber(dto.getPhoneNumber());
     }
 }

@@ -50,6 +50,9 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "/api/reservations/updateStatus").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.GET, "/api/reviews/all").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.GET,"/api/reviews/menu-items/{id}").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/users/all").hasRole("MANAGER")
+                .requestMatchers(HttpMethod.GET, "/api/users/current-user").hasAnyRole("MANAGER", "GUEST")
+                .requestMatchers(HttpMethod.GET, "/api/users/{id}").hasRole("MANAGER")
                 .anyRequest().authenticated());
 
         return http.build();
