@@ -4,6 +4,7 @@ public class MenuItemDTO {
     private Long id;
     private String name;
     private String description;
+    private String type;
     private Double price;
     private String imageUrl;
     private Boolean available;
@@ -30,6 +31,14 @@ public class MenuItemDTO {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Double getPrice() {

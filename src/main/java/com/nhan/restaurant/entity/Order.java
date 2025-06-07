@@ -25,7 +25,7 @@ public class Order {
     private Status status;
 
     public enum Status {
-        PENDING, IN_PROGRESS, SERVED, CANCELLED
+        PENDING, PREPARING, READY, SERVED, CANCELLED
     }
 
     public Long getId() {

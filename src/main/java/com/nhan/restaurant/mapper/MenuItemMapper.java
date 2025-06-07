@@ -12,6 +12,7 @@ public class MenuItemMapper {
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setDescription(entity.getDescription());
+        dto.setType(entity.getType());
         dto.setPrice(entity.getPrice());
         dto.setImageUrl(entity.getImageUrl());
         dto.setAvailable(entity.getAvailable());
@@ -25,6 +26,7 @@ public class MenuItemMapper {
         entity.setId(dto.getId());
         entity.setName(dto.getName());
         entity.setDescription(dto.getDescription());
+        entity.setType(dto.getType());
         entity.setPrice(dto.getPrice());
         entity.setImageUrl(dto.getImageUrl());
         entity.setAvailable(dto.getAvailable());
