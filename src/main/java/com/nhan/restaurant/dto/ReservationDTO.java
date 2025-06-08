@@ -7,7 +7,9 @@ import java.time.LocalDateTime;
 public class ReservationDTO {
     private Long id;
     private Long userId;
+    private String customerName;
     private Long tableId;
+    private int tableNumber;
     private LocalDateTime reservationTime;
     private int guestsCount;
     private Reservation.Status status;
@@ -28,12 +30,28 @@ public class ReservationDTO {
         this.userId = userId;
     }
 
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
     public Long getTableId() {
         return tableId;
     }
 
     public void setTableId(Long tableId) {
         this.tableId = tableId;
+    }
+
+    public int getTableNumber() {
+        return tableNumber;
+    }
+
+    public void setTableNumber(int tableNumber) {
+        this.tableNumber = tableNumber;
     }
 
     public LocalDateTime getReservationTime() {

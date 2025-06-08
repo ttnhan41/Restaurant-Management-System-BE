@@ -2,15 +2,19 @@ package com.nhan.restaurant.dto;
 
 import com.nhan.restaurant.entity.Order;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class OrderDTO {
     private Long id;
     private Long userId;
+    private String customerName;
     private LocalDateTime orderTime;
     private Order.Status status;
     private List<OrderItemDTO> items;
+    private List<String> itemNames;
+    private BigDecimal total;
 
     public Long getId() {
         return id;
@@ -26,6 +30,14 @@ public class OrderDTO {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public LocalDateTime getOrderTime() {
@@ -50,5 +62,21 @@ public class OrderDTO {
 
     public void setItems(List<OrderItemDTO> items) {
         this.items = items;
+    }
+
+    public List<String> getItemNames() {
+        return itemNames;
+    }
+
+    public void setItemNames(List<String> itemNames) {
+        this.itemNames = itemNames;
+    }
+
+    public BigDecimal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BigDecimal total) {
+        this.total = total;
     }
 }

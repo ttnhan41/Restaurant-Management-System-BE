@@ -5,6 +5,7 @@ import com.nhan.restaurant.entity.Reservation;
 import com.nhan.restaurant.entity.RestaurantTable;
 import com.nhan.restaurant.entity.User;
 import com.nhan.restaurant.exception.AlreadyExistsException;
+import com.nhan.restaurant.exception.BadRequestException;
 import com.nhan.restaurant.exception.NotFoundException;
 import com.nhan.restaurant.exception.UnauthorizedException;
 import com.nhan.restaurant.mapper.ReservationMapper;
@@ -36,10 +37,10 @@ public class ReservationService {
                 .orElseThrow(() -> new NotFoundException("Table not found"));
 
         // Check for existing reservation
-        reservationRepository.findActiveReservation(dto.getTableId())
-                .ifPresent(existing -> {
-                    throw new AlreadyExistsException("Table is already reserved at this time.");
-                });
+        //reservationRepository.findActiveReservation(dto.getTableId())
+        //        .ifPresent(existing -> {
+        //            throw new AlreadyExistsException("Table is already reserved at this time.");
+        //        });
 
         Reservation reservation = new Reservation();
         reservation.setUser(user);
@@ -78,7 +79,22 @@ public class ReservationService {
         Reservation reservation = reservationRepository.findById(reservationId)
                 .orElseThrow(() -> new NotFoundException("Reservation not found"));
 
-        reservation.setStatus(status);
+        if (status == Reservation.Status.CONFIRMED) {
+            RestaurantTable table = reservation.getTable();
+
+            if (!table.isAvailable()) {
+                throw new BadRequestException("Bàn này đã được đặt rồi.");
+            }
+
+            reservation.setStatus(Reservation.Status.CONFIRMED);
+            table.setAvailable(false);
+            tableRepository.save(table);
+        } else if (status == Reservation.Status.CANCELLED) {
+            reservation.setStatus(Reservation.Status.CANCELLED);
+        } else {
+            throw new BadRequestException("Chỉ có thể xác nhận hoặc hủy đơn đặt bàn.");
+        }
+
         return ReservationMapper.toDTO(reservationRepository.save(reservation));
     }
 }

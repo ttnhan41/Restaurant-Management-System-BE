@@ -8,7 +8,9 @@ public class ReservationMapper {
         ReservationDTO dto = new ReservationDTO();
         dto.setId(res.getId());
         dto.setUserId(res.getUser().getId());
+        dto.setCustomerName(res.getUser().getName());
         dto.setTableId(res.getTable().getId());
+        dto.setTableNumber(res.getTable().getTableNumber());
         dto.setReservationTime(res.getReservationTime());
         dto.setGuestsCount(res.getGuestsCount());
         dto.setStatus(Reservation.Status.valueOf(res.getStatus().name()));
