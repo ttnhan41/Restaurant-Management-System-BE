@@ -23,7 +23,7 @@ public class OrderMapper {
         dto.setItems(items);
 
         List<String> itemNames = order.getItems().stream()
-                .map(item -> item.getMenuItem().getName())
+                .map(item -> item.getMenuItem().getName() + " x" + item.getQuantity())
                 .collect(Collectors.toList());
         dto.setItemNames(itemNames);
 
