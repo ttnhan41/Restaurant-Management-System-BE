@@ -14,6 +14,7 @@ public class User {
     private String email;
     private String password;
     private String phoneNumber;
+    private String address;
 
     @Enumerated(EnumType.STRING)
     private Role role; // GUEST or MANAGER
@@ -56,6 +57,14 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Role getRole() {

@@ -10,6 +10,7 @@ public class UserMapper {
         dto.setName(user.getName());
         dto.setEmail(user.getEmail());
         dto.setPhoneNumber(user.getPhoneNumber());
+        dto.setAddress(user.getAddress());
         dto.setRole(user.getRole().name());
         return dto;
     }
@@ -17,5 +18,6 @@ public class UserMapper {
     public static void updateUserFromDTO(User user, UserDTO dto) {
         user.setName(dto.getName());
         user.setPhoneNumber(dto.getPhoneNumber());
+        user.setAddress(dto.getAddress());
     }
 }
