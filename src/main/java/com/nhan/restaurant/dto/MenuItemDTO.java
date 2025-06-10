@@ -8,6 +8,7 @@ public class MenuItemDTO {
     private Double price;
     private String imageUrl;
     private Boolean available;
+    private Double averageRating;
 
     public Long getId() {
         return id;
@@ -63,5 +64,13 @@ public class MenuItemDTO {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public Double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(Double averageRating) {
+        this.averageRating = averageRating;
     }
 }

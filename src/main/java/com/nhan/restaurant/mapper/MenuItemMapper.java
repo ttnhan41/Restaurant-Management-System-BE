@@ -5,7 +5,7 @@ import com.nhan.restaurant.entity.MenuItem;
 
 public class MenuItemMapper {
 
-    public static MenuItemDTO toDTO(MenuItem entity) {
+    public static MenuItemDTO toDTO(MenuItem entity, Double avgRating) {
         if (entity == null) return null;
 
         MenuItemDTO dto = new MenuItemDTO();
@@ -16,6 +16,7 @@ public class MenuItemMapper {
         dto.setPrice(entity.getPrice());
         dto.setImageUrl(entity.getImageUrl());
         dto.setAvailable(entity.getAvailable());
+        dto.setAverageRating(avgRating);
         return dto;
     }
 

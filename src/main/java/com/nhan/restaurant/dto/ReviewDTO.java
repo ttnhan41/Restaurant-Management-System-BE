@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class ReviewDTO {
     private Long id;
     private Long userId;
+    private String userName;
     private Long menuItemId;
     private int rating;
     private String comment;
@@ -24,6 +25,14 @@ public class ReviewDTO {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Long getMenuItemId() {

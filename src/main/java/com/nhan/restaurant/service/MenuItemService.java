@@ -5,36 +5,48 @@ import com.nhan.restaurant.entity.MenuItem;
 import com.nhan.restaurant.exception.NotFoundException;
 import com.nhan.restaurant.mapper.MenuItemMapper;
 import com.nhan.restaurant.repository.MenuItemRepository;
+import com.nhan.restaurant.repository.ReviewRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class MenuItemService {
 
     private final MenuItemRepository menuItemRepository;
+    private final ReviewRepository reviewRepository;
 
-    public MenuItemService(MenuItemRepository menuItemRepository) {
+    public MenuItemService(MenuItemRepository menuItemRepository, ReviewRepository reviewRepository) {
         this.menuItemRepository = menuItemRepository;
+        this.reviewRepository = reviewRepository;
     }
 
     public MenuItemDTO createMenuItem(MenuItemDTO dto) {
         MenuItem menuItem = MenuItemMapper.toEntity(dto);
         MenuItem saved = menuItemRepository.save(menuItem);
-        return MenuItemMapper.toDTO(saved);
+        return MenuItemMapper.toDTO(saved, null);
     }
 
     public MenuItemDTO getMenuItem(Long id) {
         MenuItem menuItem = menuItemRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Menu item not found with id: " + id));
-        return MenuItemMapper.toDTO(menuItem);
+
+        Double avgRating = reviewRepository.findAverageRatingByMenuItemId(id);
+
+        return MenuItemMapper.toDTO(menuItem, avgRating);
     }
 
     public List<MenuItemDTO> getAllMenuItems() {
-        return menuItemRepository.findAll().stream()
-                .map(MenuItemMapper::toDTO)
-                .collect(Collectors.toList());
+        List<MenuItem> items = menuItemRepository.findAll();
+        List<MenuItemDTO> dtos = new ArrayList<>();
+
+        for (MenuItem item : items) {
+            Double avgRating = reviewRepository.findAverageRatingByMenuItemId(item.getId());
+            dtos.add(MenuItemMapper.toDTO(item, avgRating));
+        }
+
+        return dtos;
     }
 
     public MenuItemDTO updateMenuItem(Long id, MenuItemDTO dto) {
@@ -48,7 +60,10 @@ public class MenuItemService {
         menuItem.setImageUrl(dto.getImageUrl());
         menuItem.setAvailable(dto.getAvailable());
 
-        return MenuItemMapper.toDTO(menuItemRepository.save(menuItem));
+        MenuItem saved = menuItemRepository.save(menuItem);
+        Double avgRating = reviewRepository.findAverageRatingByMenuItemId(saved.getId());
+
+        return MenuItemMapper.toDTO(saved, avgRating);
     }
 
     public void deleteMenuItem(Long id) {
