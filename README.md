@@ -4,6 +4,8 @@
 
 This is the backend service for a restaurant management system built using Spring Boot. It allows restaurant guests to place orders, make reservations, and write reviews, while managers can manage tables, menus, and order statuses. The system uses JWT authentication and role-based access control to distinguish between users and managers.
 
+The frontend of this app can be found here: https://github.com/ttnhan41/Restaurant-Management-System-FE
+
 ---
 
 ## 💻 Tech Stack
